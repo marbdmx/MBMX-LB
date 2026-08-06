@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect fill='%2314322A' width='40' height='40' rx='8'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' fill='%23F6F3EE' font-family='Georgia' font-size='22' font-weight='700'>M</text></svg>" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Marbuendia.Mx — Transformamos la comunicación institucional en un sistema estratégico, medible y gobernable." />
+  <title>Marbuendia.Mx | Comunicación Institucional Inteligente</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --forest: #14322A;
+      --forest-mid: #1A4036;
+      --teal: #0D5C55;
+      --teal-soft: #1A7A6D;
+      --cream: #F6F3EE;
+      --cream-dark: #EDE8E0;
+      --warm-white: #FFFCFA;
+      --terracotta: #B85C38;
+      --ink: #1C2B26;
+      --muted: #5C6B64;
+      --muted-light: #8A9690;
+      --border: #E5E0D8;
+      --border-soft: #EFEBE4;
+      --shadow: 0 12px 40px -12px rgba(20, 50, 42, 0.12);
+      --shadow-soft: 0 4px 20px -4px rgba(20, 50, 42, 0.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      line-height: 1.2;
+      font-weight: 600;
+      color: var(--forest);
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; object-fit: cover; }
+    .container { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 1.5rem; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      padding: 0.9rem 1.6rem; font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
+      font-weight: 600; border-radius: 6px; border: none; cursor: pointer;
+      transition: all 0.2s ease; letter-spacing: 0.01em;
+    }
+    .btn-primary { background: var(--forest); color: var(--cream); }
+    .btn-primary:hover { background: var(--forest-mid); transform: translateY(-1px); box-shadow: var(--shadow-soft); }
+    .btn-secondary { background: transparent; color: var(--forest); border: 1.5px solid var(--border); }
+    .btn-secondary:hover { border-color: var(--forest); background: var(--warm-white); }
+    .btn-accent { background: var(--terracotta); color: white; }
+    .btn-accent:hover { background: #A04E30; }
+    .section { padding: 5.5rem 0; }
+    .section-title { font-size: clamp(1.9rem, 4vw, 2.5rem); color: var(--forest); margin-bottom: 0.75rem; text-align: center; font-weight: 600; }
+    .section-subtitle { font-size: 1.05rem; color: var(--muted); text-align: center; max-width: 560px; margin: 0 auto 3rem; }
+    .badge {
+      display: inline-block; font-family: 'DM Sans', sans-serif; font-size: 0.7rem;
+      font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em;
+      color: var(--teal); margin-bottom: 0.85rem;
+    }
+    .divider-ornament { display: flex; align-items: center; justify-content: center; gap: 0.75rem; margin-bottom: 0.5rem; }
+    .divider-ornament::before, .divider-ornament::after { content: ""; width: 28px; height: 1px; background: var(--border); }
+    .divider-ornament span { color: var(--terracotta); font-size: 0.7rem; }
+
+    /* LANG TOGGLE */
+    .lang-toggle {
+      display: flex; align-items: center; background: var(--warm-white);
+      border: 1px solid var(--border); border-radius: 20px; padding: 3px;
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em;
+    }
+    .lang-toggle button {
+      border: none; background: transparent; padding: 0.35rem 0.7rem;
+      border-radius: 16px; cursor: pointer; color: var(--muted);
+      font-family: 'DM Sans', sans-serif; font-size: 0.72rem; font-weight: 600;
+      transition: all 0.2s;
+    }
+    .lang-toggle button.active {
+      background: var(--forest); color: var(--cream);
+    }
+
+    /* NAV */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(246, 243, 238, 0.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 76px; gap: 1rem; }
+    .logo { display: flex; align-items: center; gap: 0.7rem; flex-shrink: 0; }
+    .logo-mark {
+      width: 42px; height: 42px; background: var(--forest); color: var(--cream);
+      font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 1.35rem;
+      display: flex; align-items: center; justify-content: center; border-radius: 8px;
+    }
+    .logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+    .logo-text strong { font-family: 'DM Sans', sans-serif; font-size: 0.92rem; color: var(--forest); letter-spacing: 0.04em; font-weight: 700; }
+    .logo-text span { font-size: 0.62rem; color: var(--muted-light); font-weight: 500; letter-spacing: 0.06em; }
+    .nav-links { display: flex; align-items: center; gap: 1.4rem; }
+    .nav-links a:not(.btn) { font-size: 0.85rem; font-weight: 500; color: var(--muted); transition: color 0.15s; }
+    .nav-links a:not(.btn):hover { color: var(--forest); }
+    .nav-cta { padding: 0.5rem 1.1rem; font-size: 0.8rem; border-radius: 6px; }
+    .nav-right { display: flex; align-items: center; gap: 1rem; }
+    .nav-toggle { display: none; background: none; border: none; font-size: 1.4rem; cursor: pointer; color: var(--forest); }
+    @media (max-width: 960px) {
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex; flex-direction: column; position: absolute; top: 76px; left: 0; right: 0;
+        background: var(--cream); padding: 1.5rem; border-bottom: 1px solid var(--border); gap: 1rem;
+      }
+      .nav-toggle { display: block; }
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      background: linear-gradient(165deg, #F9F6F1 0%, var(--cream) 45%, #F3EFE8 100%);
+      padding: 3.5rem 0 5.5rem; overflow: hidden;
+    }
+    .hero-grid {
+      display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 2.5rem;
+      align-items: center; position: relative; z-index: 2;
+    }
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 3.5rem); color: var(--forest);
+      margin-bottom: 1.15rem; font-weight: 600; letter-spacing: -0.02em;
+    }
+    .hero .highlight { color: var(--terracotta); font-style: italic; }
+    .hero-lead { font-size: 1.1rem; color: var(--muted); margin-bottom: 0.6rem; max-width: 460px; }
+    .hero-sub { font-size: 0.95rem; color: var(--muted-light); margin-bottom: 1.5rem; max-width: 440px; }
+    .hero-benefits {
+      display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; margin-bottom: 1.85rem;
+      font-size: 0.85rem; font-weight: 500; color: var(--forest-mid);
+    }
+    .hero-ctas { display: flex; gap: 0.85rem; flex-wrap: wrap; }
+    .hero-visual { position: relative; }
+    .hero-img-wrap {
+      border-radius: 20px; overflow: hidden;
+      box-shadow: 0 28px 60px -16px rgba(20, 50, 42, 0.28);
+      aspect-ratio: 4/3;
+    }
+    .hero-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-float-card {
+      position: absolute; bottom: -16px; left: -16px;
+      background: var(--forest); border-radius: 14px; padding: 1.1rem 1.25rem;
+      color: var(--cream); box-shadow: var(--shadow);
+      min-width: 180px;
+    }
+    .hero-float-card .hf-label { font-size: 0.68rem; color: rgba(246,243,238,0.55); margin-bottom: 0.15rem; }
+    .hero-float-card .hf-value { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; }
+    .hero-float-card .hf-delta { font-size: 0.72rem; color: #7DCEA0; }
+    .hero-curve {
+      position: absolute; bottom: -1px; left: 0; right: 0; height: 70px;
+      background: var(--warm-white);
+      border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+      transform: scaleX(1.15);
+    }
+    @media (max-width: 920px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-visual { max-width: 480px; margin: 0 auto; }
+      .hero-float-card { left: 12px; bottom: 12px; }
+    }
+
+    /* CAPABILITIES */
+    .capabilities { background: var(--warm-white); }
+    .cap-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.15rem; }
+    .cap-card {
+      background: var(--cream); border: 1px solid var(--border-soft); border-radius: 14px;
+      padding: 1.6rem 1.2rem; transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .cap-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
+    .cap-icon { font-size: 1.35rem; color: var(--teal); margin-bottom: 0.85rem; }
+    .cap-card h3 { font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--forest); margin-bottom: 0.45rem; }
+    .cap-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+    @media (max-width: 1000px) { .cap-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 640px) { .cap-grid { grid-template-columns: 1fr 1fr; } }
+
+    /* METHODOLOGY */
+    .methodology { background: var(--cream); }
+    .steps { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.4rem; }
+    .step { flex: 1; text-align: center; max-width: 170px; }
+    .step-num {
+      width: 46px; height: 46px; background: var(--forest); color: var(--cream);
+      font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 1.2rem;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;
+    }
+    .step h3 { font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--forest); margin-bottom: 0.4rem; }
+    .step p { font-size: 0.8rem; color: var(--muted); line-height: 1.45; }
+    .step-line { flex: 0 0 20px; height: 1px; background: var(--border); margin-top: 23px; }
+    @media (max-width: 800px) {
+      .steps { flex-direction: column; align-items: stretch; gap: 1.4rem; }
+      .step { max-width: none; text-align: left; display: flex; gap: 1rem; align-items: flex-start; }
+      .step-num { margin: 0; flex-shrink: 0; }
+      .step-line { display: none; }
+    }
+
+    /* PILLARS */
+    .more-than { background: var(--forest); color: var(--cream); }
+    .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+    .pillar {
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px; padding: 2rem 1.5rem;
+    }
+    .pillar h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; margin-bottom: 0.7rem; color: #A8D5C8; font-weight: 600; }
+    .pillar p { font-size: 0.92rem; color: rgba(246,243,238,0.72); line-height: 1.55; }
+    @media (max-width: 768px) { .pillars { grid-template-columns: 1fr; } }
+
+    /* METRICS */
+    .metrics { background: var(--warm-white); }
+    .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
+    .metric-card {
+      background: var(--cream); border-radius: 14px; padding: 1.8rem 1.2rem;
+      text-align: center; border: 1px solid var(--border-soft);
+    }
+    .metric-value { display: block; font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; font-weight: 600; color: var(--forest); margin-bottom: 0.3rem; }
+    .metric-label { display: block; font-size: 0.88rem; font-weight: 600; color: var(--forest-mid); margin-bottom: 0.2rem; }
+    .metric-note { display: block; font-size: 0.72rem; color: var(--muted-light); }
+    @media (max-width: 768px) { .metrics-grid { grid-template-columns: 1fr 1fr; } }
+
+    /* VERTICALS */
+    .verticals { background: var(--cream); }
+    .vert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+    .vert-card {
+      background: var(--warm-white); border: 1px solid var(--border-soft); border-radius: 14px;
+      overflow: hidden; transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .vert-card:hover { border-color: var(--teal); box-shadow: var(--shadow-soft); }
+    .vert-img { height: 140px; overflow: hidden; }
+    .vert-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+    .vert-card:hover .vert-img img { transform: scale(1.04); }
+    .vert-body { padding: 1.3rem 1.3rem 1.5rem; }
+    .vert-card h3 { font-family: 'DM Sans', sans-serif; font-size: 1.05rem; font-weight: 600; color: var(--forest); margin-bottom: 0.4rem; }
+    .vert-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
+    @media (max-width: 768px) { .vert-grid { grid-template-columns: 1fr; } }
+
+    /* SPACE */
+    .space-section { background: var(--warm-white); padding: 5.5rem 0; }
+    .space-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 3rem; align-items: center; }
+    .space-content h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); color: var(--forest); margin: 0.4rem 0 1rem; }
+    .space-content > p { color: var(--muted); margin-bottom: 1.5rem; font-size: 1.02rem; }
+    .space-list { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+    .space-list li {
+      font-size: 0.92rem; font-weight: 500; color: var(--forest-mid);
+      padding-left: 1.4rem; position: relative;
+    }
+    .space-list li::before { content: "→"; position: absolute; left: 0; color: var(--teal); font-weight: 700; }
+    .space-img-wrap {
+      border-radius: 18px; overflow: hidden; box-shadow: var(--shadow);
+      aspect-ratio: 4/3;
+    }
+    .space-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    @media (max-width: 768px) { .space-grid { grid-template-columns: 1fr; } }
+
+    /* SCENARIOS */
+    .scenarios { background: var(--cream); }
+    .scen-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.15rem; }
+    .scen-card { background: var(--warm-white); border: 1px solid var(--border-soft); border-radius: 12px; padding: 1.5rem 1.3rem; }
+    .scen-card h4 { font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--forest); margin-bottom: 0.45rem; }
+    .scen-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
+    @media (max-width: 768px) { .scen-grid { grid-template-columns: 1fr; } }
+
+    /* PILOT */
+    .pilot { padding: 4rem 0; background: var(--warm-white); }
+    .pilot-box {
+      background: linear-gradient(145deg, var(--forest) 0%, var(--forest-mid) 50%, var(--teal) 100%);
+      border-radius: 22px; padding: 0; display: grid; grid-template-columns: 1.2fr 1fr;
+      color: var(--cream); overflow: hidden; box-shadow: var(--shadow);
+    }
+    .pilot-content { padding: 3rem 2.5rem; }
+    .pilot-content h2 { font-size: clamp(1.85rem, 3vw, 2.35rem); color: var(--cream); margin: 0.4rem 0 1rem; }
+    .pilot-content > p { color: rgba(246,243,238,0.78); margin-bottom: 1.2rem; font-size: 1.02rem; }
+    .pilot-checks { list-style: none; margin-bottom: 1.7rem; display: flex; flex-direction: column; gap: 0.4rem; }
+    .pilot-checks li { font-size: 0.92rem; font-weight: 500; color: rgba(246,243,238,0.9); }
+    .pilot-img { position: relative; min-height: 320px; }
+    .pilot-img img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+    .pilot-stats-overlay {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(20,50,42,0.92));
+      padding: 2rem 1.5rem 1.5rem; display: flex; gap: 1.5rem; justify-content: center;
+    }
+    .pilot-stat { text-align: center; }
+    .ps-num { display: block; font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 600; color: #A8D5C8; }
+    .ps-label { font-size: 0.72rem; color: rgba(246,243,238,0.65); }
+    @media (max-width: 800px) {
+      .pilot-box { grid-template-columns: 1fr; }
+      .pilot-img { min-height: 240px; position: relative; }
+      .pilot-img img { position: relative; height: 240px; }
+    }
+
+    /* WHY */
+    .why { background: var(--cream); text-align: center; }
+    .why-lead { font-size: 1.3rem; color: var(--forest); margin: 1.4rem auto 1rem; max-width: 540px; line-height: 1.45; }
+    .why-text { font-size: 1.02rem; color: var(--muted); max-width: 560px; margin: 0 auto; line-height: 1.6; }
+
+    /* CTA */
+    .cta-final { padding: 2.5rem 0 4rem; background: var(--warm-white); }
+    .cta-box {
+      background: var(--forest); border-radius: 18px; padding: 2.4rem 2.8rem;
+      display: flex; align-items: center; justify-content: space-between; gap: 2rem; color: var(--cream);
+    }
+    .cta-box h2 { font-size: 1.55rem; margin-bottom: 0.35rem; color: var(--cream); }
+    .cta-box p { color: rgba(246,243,238,0.68); font-size: 0.95rem; max-width: 460px; }
+    .cta-box .btn-primary { background: var(--cream); color: var(--forest); }
+    .cta-box .btn-primary:hover { background: white; }
+    @media (max-width: 700px) {
+      .cta-box { flex-direction: column; text-align: center; padding: 2rem; }
+      .cta-box p { max-width: none; }
+    }
+
+    /* FOOTER */
+    .footer { background: var(--forest); color: rgba(246,243,238,0.65); padding: 3.5rem 0 0; }
+    .footer-grid {
+      display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 2rem;
+      padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer-brand p { font-size: 0.85rem; line-height: 1.55; max-width: 270px; margin-top: 0.4rem; }
+    .footer-col h4 {
+      font-family: 'DM Sans', sans-serif; font-size: 0.72rem; text-transform: uppercase;
+      letter-spacing: 0.1em; color: rgba(246,243,238,0.4); margin-bottom: 1rem; font-weight: 600;
+    }
+    .footer-col a, .footer-col span {
+      display: block; font-size: 0.85rem; margin-bottom: 0.4rem;
+      color: rgba(246,243,238,0.65); transition: color 0.15s;
+    }
+    .footer-col a:hover { color: var(--cream); }
+    .footer-bottom {
+      display: flex; justify-content: space-between; padding: 1.2rem 1.5rem;
+      font-size: 0.72rem; color: rgba(246,243,238,0.35);
+    }
+    @media (max-width: 800px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-bottom { flex-direction: column; gap: 0.4rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="/" class="logo">
+        <span class="logo-mark">M</span>
+        <div class="logo-text">
+          <strong>MARBUENDIA.MX</strong>
+          <span data-i18n="logo-sub">COMUNICACIÓN INSTITUCIONAL</span>
+        </div>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#capacidades" data-i18n="nav-solucion">Solución</a>
+        <a href="#metodologia" data-i18n="nav-metodologia">Metodología</a>
+        <a href="#verticales" data-i18n="nav-verticales">Verticales</a>
+        <a href="#espacio" data-i18n="nav-espacio">El espacio</a>
+        <a href="#piloto" data-i18n="nav-piloto">Piloto</a>
+        <a href="#contacto" class="btn btn-primary nav-cta" data-i18n="nav-contacto">Contacto</a>
+      </nav>
+      <div class="nav-right">
+        <div class="lang-toggle" role="group" aria-label="Language">
+          <button type="button" id="btn-es" class="active" onclick="setLang('es')">SPA</button>
+          <button type="button" id="btn-en" onclick="setLang('en')">ENG</button>
+        </div>
+        <button class="nav-toggle" aria-label="Menú" id="navToggle">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <p class="badge" data-i18n="hero-badge">Comunicación Institucional Inteligente</p>
+        <h1 data-i18n-html="hero-title">De la pared<br/><span class="highlight">al resultado.</span></h1>
+        <p class="hero-lead" data-i18n="hero-lead">
+          Transformamos la comunicación visual en un sistema inteligente que informa, conecta, protege y genera confianza.
+        </p>
+        <p class="hero-sub" data-i18n="hero-sub">
+          Pasamos de mensajes aislados a una comunicación institucional gobernada, medible y preparada para evolucionar.
+        </p>
+        <div class="hero-benefits">
+          <span data-i18n="ben1">✓ Estrategia que alinea</span>
+          <span data-i18n="ben2">✓ Comunicación que se mide</span>
+          <span data-i18n="ben3">✓ Gobierno de contenidos</span>
+          <span data-i18n="ben4">✓ Infraestructura confiable</span>
+        </div>
+        <div class="hero-ctas">
+          <a href="#piloto" class="btn btn-primary" data-i18n="cta-piloto">Conocer el piloto</a>
+          <a href="#metodologia" class="btn btn-secondary" data-i18n="cta-como">Ver cómo funciona</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-img-wrap">
+          <img src="images/hero-lobby.jpg" alt="Lobby institucional moderno con comunicación visual" width="800" height="600" loading="eager" />
+        </div>
+        <div class="hero-float-card">
+          <div class="hf-label" data-i18n="dash-label">Alcance mensual</div>
+          <div class="hf-value">18,352</div>
+          <div class="hf-delta">+24%</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-curve"></div>
+  </section>
+
+  <!-- CAPACIDADES -->
+  <section class="section capabilities" id="capacidades">
+    <div class="container">
+      <div class="divider-ornament"><span>✦</span></div>
+      <p class="badge" style="text-align:center; display:block;" data-i18n="cap-badge">Una plataforma. Cinco capacidades.</p>
+      <h2 class="section-title" data-i18n="cap-title">Todo lo que tu comunicación institucional necesita</h2>
+      <p class="section-subtitle" data-i18n="cap-sub">Integramos estrategia, tecnología, contenidos, operación y medición en una sola solución.</p>
+      <div class="cap-grid">
+        <article class="cap-card">
+          <div class="cap-icon">◎</div>
+          <h3 data-i18n="cap1-t">Estrategia Institucional</h3>
+          <p data-i18n="cap1-p">Diseñamos la arquitectura comunicacional de la organización: mensajes, públicos y jerarquías.</p>
+        </article>
+        <article class="cap-card">
+          <div class="cap-icon">◈</div>
+          <h3 data-i18n="cap2-t">Gobierno de Contenidos</h3>
+          <p data-i18n="cap2-p">Roles, aprobaciones y procesos para garantizar que solo se publique lo correcto, a tiempo.</p>
+        </article>
+        <article class="cap-card">
+          <div class="cap-icon">▣</div>
+          <h3 data-i18n="cap3-t">Digital Signage</h3>
+          <p data-i18n="cap3-p">Implementamos soluciones visuales profesionales para espacios físicos de alto impacto.</p>
+        </article>
+        <article class="cap-card">
+          <div class="cap-icon">▤</div>
+          <h3 data-i18n="cap4-t">Analítica y Medición</h3>
+          <p data-i18n="cap4-p">Convertimos la comunicación en indicadores de desempeño claros y accionables.</p>
+        </article>
+        <article class="cap-card">
+          <div class="cap-icon">↻</div>
+          <h3 data-i18n="cap5-t">Operación Continua</h3>
+          <p data-i18n="cap5-p">Actualizamos, monitoreamos y evolucionamos el sistema de forma permanente.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- METODOLOGÍA -->
+  <section class="section methodology" id="metodologia">
+    <div class="container">
+      <div class="divider-ornament"><span>✦</span></div>
+      <p class="badge" style="text-align:center; display:block;" data-i18n="met-badge">Un sistema simple. Un impacto medible.</p>
+      <h2 class="section-title" data-i18n="met-title">Así transformamos tu comunicación</h2>
+      <p class="section-subtitle" data-i18n="met-sub">Metodología clara de 5 pasos, del diagnóstico a la evolución continua.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3 data-i18n="s1-t">Diagnóstico</h3>
+          <p data-i18n="s1-p">Analizamos cómo comunica actualmente la institución, sus audiencias y puntos de contacto.</p>
+        </div>
+        <div class="step-line"></div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3 data-i18n="s2-t">Estrategia</h3>
+          <p data-i18n="s2-p">Diseñamos mensajes, públicos, lineamientos y el calendario editorial.</p>
+        </div>
+        <div class="step-line"></div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3 data-i18n="s3-t">Implementación</h3>
+          <p data-i18n="s3-p">Instalamos tecnología, configuramos el CMS y cargamos la estructura editorial.</p>
+        </div>
+        <div class="step-line"></div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <h3 data-i18n="s4-t">Operación</h3>
+          <p data-i18n="s4-p">Publicamos, monitoreamos y mantenemos el sistema actualizado día a día.</p>
+        </div>
+        <div class="step-line"></div>
+        <div class="step">
+          <div class="step-num">5</div>
+          <h3 data-i18n="s5-t">Evolución</h3>
+          <p data-i18n="s5-p">Medimos resultados, aprendemos y mejoramos continuamente el impacto.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PILARES -->
+  <section class="section more-than">
+    <div class="container">
+      <div class="divider-ornament"><span>✦</span></div>
+      <p class="badge" style="text-align:center; display:block; color: #A8D5C8;" data-i18n="pil-badge">Mucho más que pantallas</p>
+      <h2 class="section-title" style="color: var(--cream);" data-i18n="pil-title">Tres pilares que definen nuestro trabajo</h2>
+      <p class="section-subtitle" style="color: rgba(246,243,238,0.65);" data-i18n="pil-sub">Combinamos autoridad institucional, control operativo y modernización real.</p>
+      <div class="pillars">
+        <article class="pillar">
+          <h3 data-i18n="p1-t">La Voz Institucional</h3>
+          <p data-i18n="p1-p">Creamos coherencia entre todas las áreas para que la organización hable con una sola voz, clara y alineada.</p>
+        </article>
+        <article class="pillar">
+          <h3 data-i18n="p2-t">Infraestructura de Confianza</h3>
+          <p data-i18n="p2-p">Control, trazabilidad y continuidad para comunicar correctamente incluso en situaciones críticas.</p>
+        </article>
+        <article class="pillar">
+          <h3 data-i18n="p3-t">Transformación Digital</h3>
+          <p data-i18n="p3-p">Convertimos procesos manuales e improvisados en sistemas permanentes de comunicación institucional.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- MÉTRICAS -->
+  <section class="section metrics">
+    <div class="container">
+      <div class="divider-ornament"><span>✦</span></div>
+      <p class="badge" style="text-align:center; display:block;" data-i18n="metri-badge">Lo que sí puedes medir</p>
+      <h2 class="section-title" data-i18n="metri-title">Resultados que hablan de tu comunicación</h2>
+      <p class="section-subtitle" data-i18n="metri-sub">Nuestras métricas te dan la claridad que necesitas para tomar mejores decisiones y demostrar impacto.</p>
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <span class="metric-value">91%</span>
+          <span class="metric-label" data-i18n="m1-l">Pantallas activas</span>
+          <span class="metric-note" data-i18n="m1-n">Disponibilidad promedio</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-value">2.4M+</span>
+          <span class="metric-label" data-i18n="m2-l">Impactos mensuales</span>
+          <span class="metric-note" data-i18n="m2-n">Audiencia alcanzada</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-value">67%</span>
+          <span class="metric-label" data-i18n="m3-l">Tasa de atención</span>
+          <span class="metric-note" data-i18n="m3-n">Tiempo promedio de vista</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-value">32%</span>
+          <span class="metric-label" data-i18n="m4-l">Menos mensajes ignorados</span>
+          <span class="metric-note" data-i18n="m4-n">vs. comunicación estática</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VERTICALES -->
+  <section class="section verticals" id="verticales">
+    <div class="container">
+      <div class="divider-ornament"><span>✦</span></div>
+      <p class="badge" style="text-align:center; display:block;" data-i18n="vert-badge">Sectores que atendemos</p>
+      <h2 class="section-title" data-i18n="vert-title">Soluciones para instituciones que quieren comunicar mejor</h2>
+      <div class="vert-grid">
+        <a href="#contacto" class="vert-card">
+          <div class="vert-img"><img src="images/corporate.jpg" alt="Gobierno e instituciones públicas" loading="lazy" /></div>
+          <div class="vert-body">
+            <h3 data-i18n="v1-t">Gobierno</h3>
+            <p data-i18n="v1-p">Coordinación y coherencia en la comunicación pública para informar mejor a la ciudadanía.</p>
+          </div>
+        </a>
+        <a href="#contacto" class="vert-card">
+          <div class="vert-img"><img src="images/office-screens.jpg" alt="Espacios corporativos" loading="lazy" /></div>
+          <div class="vert-body">
+            <h3 data-i18n="v2-t">Corporativos</h3>
+            <p data-i18n="v2-p">Fortalece la cultura, alinea equipos y comunica lo que impulsa tu organización.</p>
+          </div>
+        </a>
+        <a href="#contacto" class="vert-card">
+          <div class="vert-img"><img src="images/team-collab.jpg" alt="Organizaciones y asociaciones" loading="lazy" /></div>
+          <div class="vert-body">
+            <h3 data-i18n="v3-t">Organizaciones</h3>
+            <p data-i18n="v3-p">Comunicación clara y profesional para cumplir tu misión y generar mayor impacto.</p>
+          </div>
+        </a>
+        <a href="#contacto" class="vert-card">
+          <div class="vert-img"><img src="images/space-corridor.jpg" alt="Hospitales y salud" loading="lazy" /></div>
+          <div class="vert-body">
+            <h3 data-i18n="v4-t">Hospitales</h3>
+            <p data-i18n="v4-p">Orientación, información crítica y experiencia del paciente en cada espacio.</p>
+          </div>
+        </a>
+        <a href="#contacto" class="vert-card">
+          <div class="vert-img"><img src="images/woman-screen.jpg" alt="Universidades y educación" loading="lazy" /></div>
+          <div class="vert-body">
+            <h3 data-i18n="v5-t">Universidades</h3>
+            <p data-i18n="v5-p">Comunicación institucional coherente para estudiantes, académicos y comunidad.</p>
+          </div>
+        </a>
+        <a href="#contacto" class="vert-card">
+          <div class="vert-img"><img src="images/pilot-meeting.jpg" alt="Industria y manufactura" loading="lazy" /></div>
+          <div class="vert-body">
+            <h3 data-i18n="v6-t">Industria</h3>
+            <p data-i18n="v6-p">Seguridad, KPIs y cultura operativa visibles en planta y áreas comunes.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- EL ESPACIO -->
+  <section class="section space-section" id="espacio">
+    <div class="container space-grid">
+      <div class="space-content">
+        <p class="badge" data-i18n="esp-badge">El espacio también comunica</p>
+        <h2 data-i18n="esp-title">Cada pasillo, recepción o comedor dice algo de tu institución</h2>
+        <p data-i18n="esp-p">Diseñamos experiencias institucionales que fortalecen cultura, orientación, identidad y confianza en cada punto de contacto físico.</p>
+        <ul class="space-list">
+          <li data-i18n="esp-l1">Experiencia del colaborador</li>
+          <li data-i18n="esp-l2">Wayfinding y orientación</li>
+          <li data-i18n="esp-l3">Comunicación interna estratégica</li>
+          <li data-i18n="esp-l4">Experiencia ciudadana / del paciente</li>
+          <li data-i18n="esp-l5">Identidad institucional visible</li>
+        </ul>
+      </div>
+      <div class="space-img-wrap">
+        <img src="images/space-corridor.jpg" alt="Espacio institucional con señalización digital" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ESCENARIOS -->
+  <section class="section scenarios">
+    <div class="container">
+      <div class="divider-ornament"><span>✦</span></div>
+      <p class="badge" style="text-align:center; display:block;" data-i18n="esc-badge">Comunicación preparada para cualquier escenario</p>
+      <h2 class="section-title" data-i18n="esc-title">Control cuando más se necesita</h2>
+      <p class="section-subtitle" data-i18n="esc-sub">Gobierno, trazabilidad y capacidad de respuesta para situaciones normales y críticas.</p>
+      <div class="scen-grid">
+        <div class="scen-card">
+          <h4 data-i18n="e1-t">Alertas institucionales</h4>
+          <p data-i18n="e1-p">Publica mensajes de emergencia en todas las pantallas en segundos.</p>
+        </div>
+        <div class="scen-card">
+          <h4 data-i18n="e2-t">Comunicación de crisis</h4>
+          <p data-i18n="e2-p">Protocolos claros y canales oficiales validados bajo presión.</p>
+        </div>
+        <div class="scen-card">
+          <h4 data-i18n="e3-t">Roles y aprobaciones</h4>
+          <p data-i18n="e3-p">Flujos de autorización para cada tipo de mensaje y campaña.</p>
+        </div>
+        <div class="scen-card">
+          <h4 data-i18n="e4-t">Trazabilidad completa</h4>
+          <p data-i18n="e4-p">Registro de quién publicó qué, cuándo y desde dónde.</p>
+        </div>
+        <div class="scen-card">
+          <h4 data-i18n="e5-t">Cumplimiento normativo</h4>
+          <p data-i18n="e5-p">Alineación a políticas internas y lineamientos institucionales.</p>
+        </div>
+        <div class="scen-card">
+          <h4 data-i18n="e6-t">Seguridad y acceso</h4>
+          <p data-i18n="e6-p">Permisos granulares y estándares de protección de la información.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PILOTO -->
+  <section class="section pilot" id="piloto">
+    <div class="container pilot-box">
+      <div class="pilot-content">
+        <p class="badge" style="color: #A8D5C8;" data-i18n="piloto-badge">Empieza con un piloto</p>
+        <h2 data-i18n="piloto-title">Prueba. Mide. Decide.</h2>
+        <p data-i18n="piloto-p">No necesitas cambiar toda tu infraestructura de una vez. Implementamos un piloto medible en un área prioritaria para demostrar resultados antes de escalar.</p>
+        <ul class="pilot-checks">
+          <li data-i18n="piloto-c1">✔ Instalación rápida (menos de 30 días)</li>
+          <li data-i18n="piloto-c2">✔ Operación inmediata con contenidos reales</li>
+          <li data-i18n="piloto-c3">✔ Dashboard ejecutivo con métricas clave</li>
+          <li data-i18n="piloto-c4">✔ Evidencia clara para decidir el escalamiento</li>
+        </ul>
+        <a href="#contacto" class="btn btn-accent" data-i18n="piloto-cta">Solicitar piloto</a>
+      </div>
+      <div class="pilot-img">
+        <img src="images/pilot-meeting.jpg" alt="Equipo revisando resultados del piloto" loading="lazy" />
+        <div class="pilot-stats-overlay">
+          <div class="pilot-stat">
+            <span class="ps-num">8–12</span>
+            <span class="ps-label" data-i18n="ps1">semanas</span>
+          </div>
+          <div class="pilot-stat">
+            <span class="ps-num">3–8</span>
+            <span class="ps-label" data-i18n="ps2">pantallas</span>
+          </div>
+          <div class="pilot-stat">
+            <span class="ps-num">100%</span>
+            <span class="ps-label" data-i18n="ps3">evidencia</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POR QUÉ -->
+  <section class="section why">
+    <div class="container why-inner">
+      <div class="divider-ornament"><span>✦</span></div>
+      <h2 class="section-title" data-i18n="why-title">¿Por qué Marbuendia?</h2>
+      <p class="why-lead" data-i18n-html="why-lead">
+        No instalamos pantallas.<br/>
+        <strong>Construimos sistemas de comunicación institucional que permanecen funcionando.</strong>
+      </p>
+      <p class="why-text" data-i18n="why-text">
+        Integramos estrategia, tecnología, contenidos, operación y medición en una sola solución.
+        El resultado: instituciones que hablan con una sola voz, miden su impacto y están preparadas para cualquier escenario.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta-final" id="contacto">
+    <div class="container cta-box">
+      <div>
+        <h2 data-i18n="cta-title">Hablemos de resultados para tu institución</h2>
+        <p data-i18n="cta-p">Cuéntanos tus objetivos y te mostraremos cómo podemos ayudarte a comunicar mejor y demostrar impacto.</p>
+      </div>
+      <a href="mailto:contacto@marbuendia.mx" class="btn btn-primary" data-i18n="cta-btn">Agendar reunión</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <div class="logo" style="margin-bottom: 0.8rem;">
+          <span class="logo-mark">M</span>
+          <div class="logo-text">
+            <strong style="color:var(--cream);">MARBUENDIA.MX</strong>
+            <span style="color:rgba(246,243,238,0.5);" data-i18n="footer-tag">Comunicación Institucional Inteligente</span>
+          </div>
+        </div>
+        <p data-i18n="footer-desc">Diseñamos, implementamos y operamos la infraestructura de comunicación que mantiene alineadas a las instituciones.</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer-nav">Navegación</h4>
+        <a href="#capacidades" data-i18n="nav-solucion">Solución</a>
+        <a href="#metodologia" data-i18n="nav-metodologia">Metodología</a>
+        <a href="#verticales" data-i18n="nav-verticales">Verticales</a>
+        <a href="#piloto" data-i18n="nav-piloto">Piloto</a>
+        <a href="#contacto" data-i18n="nav-contacto">Contacto</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer-serv">Servicios</h4>
+        <a href="#capacidades" data-i18n="cap1-t">Estrategia Institucional</a>
+        <a href="#capacidades" data-i18n="cap2-t">Gobierno de Contenidos</a>
+        <a href="#capacidades" data-i18n="cap3-t">Digital Signage</a>
+        <a href="#capacidades" data-i18n="cap4-t">Analítica y Medición</a>
+        <a href="#capacidades" data-i18n="cap5-t">Operación Continua</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer-contact">Contacto</h4>
+        <a href="mailto:contacto@marbuendia.mx">contacto@marbuendia.mx</a>
+        <span data-i18n="footer-city">Ciudad de México</span>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© 2026 Marbuendia.Mx. <span data-i18n="footer-rights">Todos los derechos reservados.</span></span>
+      <span data-i18n="footer-legal">Aviso de privacidad · Términos y condiciones</span>
+    </div>
+  </footer>
+
+  <script>
+    const i18n = {
+      es: {
+        "logo-sub": "COMUNICACIÓN INSTITUCIONAL",
+        "nav-solucion": "Solución",
+        "nav-metodologia": "Metodología",
+        "nav-verticales": "Verticales",
+        "nav-espacio": "El espacio",
+        "nav-piloto": "Piloto",
+        "nav-contacto": "Contacto",
+        "hero-badge": "Comunicación Institucional Inteligente",
+        "hero-title": 'De la pared<br/><span class="highlight">al resultado.</span>',
+        "hero-lead": "Transformamos la comunicación visual en un sistema inteligente que informa, conecta, protege y genera confianza.",
+        "hero-sub": "Pasamos de mensajes aislados a una comunicación institucional gobernada, medible y preparada para evolucionar.",
+        "ben1": "✓ Estrategia que alinea",
+        "ben2": "✓ Comunicación que se mide",
+        "ben3": "✓ Gobierno de contenidos",
+        "ben4": "✓ Infraestructura confiable",
+        "cta-piloto": "Conocer el piloto",
+        "cta-como": "Ver cómo funciona",
+        "dash-label": "Alcance mensual",
+        "cap-badge": "Una plataforma. Cinco capacidades.",
+        "cap-title": "Todo lo que tu comunicación institucional necesita",
+        "cap-sub": "Integramos estrategia, tecnología, contenidos, operación y medición en una sola solución.",
+        "cap1-t": "Estrategia Institucional",
+        "cap1-p": "Diseñamos la arquitectura comunicacional de la organización: mensajes, públicos y jerarquías.",
+        "cap2-t": "Gobierno de Contenidos",
+        "cap2-p": "Roles, aprobaciones y procesos para garantizar que solo se publique lo correcto, a tiempo.",
+        "cap3-t": "Digital Signage",
+        "cap3-p": "Implementamos soluciones visuales profesionales para espacios físicos de alto impacto.",
+        "cap4-t": "Analítica y Medición",
+        "cap4-p": "Convertimos la comunicación en indicadores de desempeño claros y accionables.",
+        "cap5-t": "Operación Continua",
+        "cap5-p": "Actualizamos, monitoreamos y evolucionamos el sistema de forma permanente.",
+        "met-badge": "Un sistema simple. Un impacto medible.",
+        "met-title": "Así transformamos tu comunicación",
+        "met-sub": "Metodología clara de 5 pasos, del diagnóstico a la evolución continua.",
+        "s1-t": "Diagnóstico", "s1-p": "Analizamos cómo comunica actualmente la institución, sus audiencias y puntos de contacto.",
+        "s2-t": "Estrategia", "s2-p": "Diseñamos mensajes, públicos, lineamientos y el calendario editorial.",
+        "s3-t": "Implementación", "s3-p": "Instalamos tecnología, configuramos el CMS y cargamos la estructura editorial.",
+        "s4-t": "Operación", "s4-p": "Publicamos, monitoreamos y mantenemos el sistema actualizado día a día.",
+        "s5-t": "Evolución", "s5-p": "Medimos resultados, aprendemos y mejoramos continuamente el impacto.",
+        "pil-badge": "Mucho más que pantallas",
+        "pil-title": "Tres pilares que definen nuestro trabajo",
+        "pil-sub": "Combinamos autoridad institucional, control operativo y modernización real.",
+        "p1-t": "La Voz Institucional",
+        "p1-p": "Creamos coherencia entre todas las áreas para que la organización hable con una sola voz, clara y alineada.",
+        "p2-t": "Infraestructura de Confianza",
+        "p2-p": "Control, trazabilidad y continuidad para comunicar correctamente incluso en situaciones críticas.",
+        "p3-t": "Transformación Digital",
+        "p3-p": "Convertimos procesos manuales e improvisados en sistemas permanentes de comunicación institucional.",
+        "metri-badge": "Lo que sí puedes medir",
+        "metri-title": "Resultados que hablan de tu comunicación",
+        "metri-sub": "Nuestras métricas te dan la claridad que necesitas para tomar mejores decisiones y demostrar impacto.",
+        "m1-l": "Pantallas activas", "m1-n": "Disponibilidad promedio",
+        "m2-l": "Impactos mensuales", "m2-n": "Audiencia alcanzada",
+        "m3-l": "Tasa de atención", "m3-n": "Tiempo promedio de vista",
+        "m4-l": "Menos mensajes ignorados", "m4-n": "vs. comunicación estática",
+        "vert-badge": "Sectores que atendemos",
+        "vert-title": "Soluciones para instituciones que quieren comunicar mejor",
+        "v1-t": "Gobierno", "v1-p": "Coordinación y coherencia en la comunicación pública para informar mejor a la ciudadanía.",
+        "v2-t": "Corporativos", "v2-p": "Fortalece la cultura, alinea equipos y comunica lo que impulsa tu organización.",
+        "v3-t": "Organizaciones", "v3-p": "Comunicación clara y profesional para cumplir tu misión y generar mayor impacto.",
+        "v4-t": "Hospitales", "v4-p": "Orientación, información crítica y experiencia del paciente en cada espacio.",
+        "v5-t": "Universidades", "v5-p": "Comunicación institucional coherente para estudiantes, académicos y comunidad.",
+        "v6-t": "Industria", "v6-p": "Seguridad, KPIs y cultura operativa visibles en planta y áreas comunes.",
+        "esp-badge": "El espacio también comunica",
+        "esp-title": "Cada pasillo, recepción o comedor dice algo de tu institución",
+        "esp-p": "Diseñamos experiencias institucionales que fortalecen cultura, orientación, identidad y confianza en cada punto de contacto físico.",
+        "esp-l1": "Experiencia del colaborador",
+        "esp-l2": "Wayfinding y orientación",
+        "esp-l3": "Comunicación interna estratégica",
+        "esp-l4": "Experiencia ciudadana / del paciente",
+        "esp-l5": "Identidad institucional visible",
+        "esc-badge": "Comunicación preparada para cualquier escenario",
+        "esc-title": "Control cuando más se necesita",
+        "esc-sub": "Gobierno, trazabilidad y capacidad de respuesta para situaciones normales y críticas.",
+        "e1-t": "Alertas institucionales", "e1-p": "Publica mensajes de emergencia en todas las pantallas en segundos.",
+        "e2-t": "Comunicación de crisis", "e2-p": "Protocolos claros y canales oficiales validados bajo presión.",
+        "e3-t": "Roles y aprobaciones", "e3-p": "Flujos de autorización para cada tipo de mensaje y campaña.",
+        "e4-t": "Trazabilidad completa", "e4-p": "Registro de quién publicó qué, cuándo y desde dónde.",
+        "e5-t": "Cumplimiento normativo", "e5-p": "Alineación a políticas internas y lineamientos institucionales.",
+        "e6-t": "Seguridad y acceso", "e6-p": "Permisos granulares y estándares de protección de la información.",
+        "piloto-badge": "Empieza con un piloto",
+        "piloto-title": "Prueba. Mide. Decide.",
+        "piloto-p": "No necesitas cambiar toda tu infraestructura de una vez. Implementamos un piloto medible en un área prioritaria para demostrar resultados antes de escalar.",
+        "piloto-c1": "✔ Instalación rápida (menos de 30 días)",
+        "piloto-c2": "✔ Operación inmediata con contenidos reales",
+        "piloto-c3": "✔ Dashboard ejecutivo con métricas clave",
+        "piloto-c4": "✔ Evidencia clara para decidir el escalamiento",
+        "piloto-cta": "Solicitar piloto",
+        "ps1": "semanas", "ps2": "pantallas", "ps3": "evidencia",
+        "why-title": "¿Por qué Marbuendia?",
+        "why-lead": 'No instalamos pantallas.<br/><strong>Construimos sistemas de comunicación institucional que permanecen funcionando.</strong>',
+        "why-text": "Integramos estrategia, tecnología, contenidos, operación y medición en una sola solución. El resultado: instituciones que hablan con una sola voz, miden su impacto y están preparadas para cualquier escenario.",
+        "cta-title": "Hablemos de resultados para tu institución",
+        "cta-p": "Cuéntanos tus objetivos y te mostraremos cómo podemos ayudarte a comunicar mejor y demostrar impacto.",
+        "cta-btn": "Agendar reunión",
+        "footer-tag": "Comunicación Institucional Inteligente",
+        "footer-desc": "Diseñamos, implementamos y operamos la infraestructura de comunicación que mantiene alineadas a las instituciones.",
+        "footer-nav": "Navegación",
+        "footer-serv": "Servicios",
+        "footer-contact": "Contacto",
+        "footer-city": "Ciudad de México",
+        "footer-rights": "Todos los derechos reservados.",
+        "footer-legal": "Aviso de privacidad · Términos y condiciones"
+      },
+      en: {
+        "logo-sub": "INSTITUTIONAL COMMUNICATION",
+        "nav-solucion": "Solution",
+        "nav-metodologia": "Methodology",
+        "nav-verticales": "Verticals",
+        "nav-espacio": "The space",
+        "nav-piloto": "Pilot",
+        "nav-contacto": "Contact",
+        "hero-badge": "Intelligent Institutional Communication",
+        "hero-title": 'From the wall<br/><span class="highlight">to results.</span>',
+        "hero-lead": "We turn visual communication into an intelligent system that informs, connects, protects and builds trust.",
+        "hero-sub": "We move from isolated messages to governed, measurable institutional communication ready to evolve.",
+        "ben1": "✓ Strategy that aligns",
+        "ben2": "✓ Communication you can measure",
+        "ben3": "✓ Content governance",
+        "ben4": "✓ Reliable infrastructure",
+        "cta-piloto": "Explore the pilot",
+        "cta-como": "See how it works",
+        "dash-label": "Monthly reach",
+        "cap-badge": "One platform. Five capabilities.",
+        "cap-title": "Everything your institutional communication needs",
+        "cap-sub": "We integrate strategy, technology, content, operations and measurement into a single solution.",
+        "cap1-t": "Institutional Strategy",
+        "cap1-p": "We design the organization's communication architecture: messages, audiences and hierarchies.",
+        "cap2-t": "Content Governance",
+        "cap2-p": "Roles, approvals and processes to ensure only the right content is published, on time.",
+        "cap3-t": "Digital Signage",
+        "cap3-p": "We deploy professional visual solutions for high-impact physical spaces.",
+        "cap4-t": "Analytics & Measurement",
+        "cap4-p": "We turn communication into clear, actionable performance indicators.",
+        "cap5-t": "Ongoing Operations",
+        "cap5-p": "We update, monitor and evolve the system on an ongoing basis.",
+        "met-badge": "A simple system. Measurable impact.",
+        "met-title": "How we transform your communication",
+        "met-sub": "A clear 5-step methodology, from diagnosis to continuous evolution.",
+        "s1-t": "Diagnosis", "s1-p": "We analyze how the institution currently communicates, its audiences and touchpoints.",
+        "s2-t": "Strategy", "s2-p": "We design messages, audiences, guidelines and the editorial calendar.",
+        "s3-t": "Implementation", "s3-p": "We install technology, configure the CMS and load the editorial structure.",
+        "s4-t": "Operations", "s4-p": "We publish, monitor and keep the system updated day by day.",
+        "s5-t": "Evolution", "s5-p": "We measure results, learn and continuously improve impact.",
+        "pil-badge": "Much more than screens",
+        "pil-title": "Three pillars that define our work",
+        "pil-sub": "We combine institutional authority, operational control and real modernization.",
+        "p1-t": "The Institutional Voice",
+        "p1-p": "We create coherence across all areas so the organization speaks with one clear, aligned voice.",
+        "p2-t": "Trust Infrastructure",
+        "p2-p": "Control, traceability and continuity to communicate correctly even in critical situations.",
+        "p3-t": "Digital Transformation",
+        "p3-p": "We turn manual, improvised processes into permanent institutional communication systems.",
+        "metri-badge": "What you can actually measure",
+        "metri-title": "Results that speak for your communication",
+        "metri-sub": "Our metrics give you the clarity you need to make better decisions and prove impact.",
+        "m1-l": "Active screens", "m1-n": "Average uptime",
+        "m2-l": "Monthly impressions", "m2-n": "Audience reached",
+        "m3-l": "Attention rate", "m3-n": "Average view time",
+        "m4-l": "Fewer ignored messages", "m4-n": "vs. static communication",
+        "vert-badge": "Sectors we serve",
+        "vert-title": "Solutions for institutions that want to communicate better",
+        "v1-t": "Government", "v1-p": "Coordination and coherence in public communication to better inform citizens.",
+        "v2-t": "Corporate", "v2-p": "Strengthen culture, align teams and communicate what drives your organization.",
+        "v3-t": "Organizations", "v3-p": "Clear, professional communication to fulfill your mission and generate greater impact.",
+        "v4-t": "Hospitals", "v4-p": "Wayfinding, critical information and patient experience in every space.",
+        "v5-t": "Universities", "v5-p": "Coherent institutional communication for students, faculty and community.",
+        "v6-t": "Industry", "v6-p": "Safety, KPIs and operational culture visible on the plant floor and common areas.",
+        "esp-badge": "Space also communicates",
+        "esp-title": "Every hallway, lobby or cafeteria says something about your institution",
+        "esp-p": "We design institutional experiences that strengthen culture, orientation, identity and trust at every physical touchpoint.",
+        "esp-l1": "Employee experience",
+        "esp-l2": "Wayfinding & orientation",
+        "esp-l3": "Strategic internal communication",
+        "esp-l4": "Citizen / patient experience",
+        "esp-l5": "Visible institutional identity",
+        "esc-badge": "Communication ready for any scenario",
+        "esc-title": "Control when it matters most",
+        "esc-sub": "Governance, traceability and response capacity for normal and critical situations.",
+        "e1-t": "Institutional alerts", "e1-p": "Publish emergency messages across all screens in seconds.",
+        "e2-t": "Crisis communication", "e2-p": "Clear protocols and validated official channels under pressure.",
+        "e3-t": "Roles & approvals", "e3-p": "Authorization workflows for every message type and campaign.",
+        "e4-t": "Full traceability", "e4-p": "A record of who published what, when and from where.",
+        "e5-t": "Regulatory compliance", "e5-p": "Alignment with internal policies and institutional guidelines.",
+        "e6-t": "Security & access", "e6-p": "Granular permissions and information protection standards.",
+        "piloto-badge": "Start with a pilot",
+        "piloto-title": "Test. Measure. Decide.",
+        "piloto-p": "You don't need to overhaul your entire infrastructure at once. We run a measurable pilot in a priority area to prove results before scaling.",
+        "piloto-c1": "✔ Fast installation (under 30 days)",
+        "piloto-c2": "✔ Immediate operations with real content",
+        "piloto-c3": "✔ Executive dashboard with key metrics",
+        "piloto-c4": "✔ Clear evidence to decide on scaling",
+        "piloto-cta": "Request a pilot",
+        "ps1": "weeks", "ps2": "screens", "ps3": "evidence",
+        "why-title": "Why Marbuendia?",
+        "why-lead": "We don't install screens.<br/><strong>We build institutional communication systems that keep working.</strong>",
+        "why-text": "We integrate strategy, technology, content, operations and measurement into one solution. The result: institutions that speak with one voice, measure their impact and are ready for any scenario.",
+        "cta-title": "Let's talk results for your institution",
+        "cta-p": "Tell us your goals and we'll show you how we can help you communicate better and prove impact.",
+        "cta-btn": "Book a meeting",
+        "footer-tag": "Intelligent Institutional Communication",
+        "footer-desc": "We design, implement and operate the communication infrastructure that keeps institutions aligned.",
+        "footer-nav": "Navigation",
+        "footer-serv": "Services",
+        "footer-contact": "Contact",
+        "footer-city": "Mexico City",
+        "footer-rights": "All rights reserved.",
+        "footer-legal": "Privacy policy · Terms & conditions"
+      }
+    };
+
+    function setLang(lang) {
+      document.documentElement.lang = lang;
+      document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      const dict = i18n[lang];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key] !== undefined) el.textContent = dict[key];
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.getAttribute('data-i18n-html');
+        if (dict[key] !== undefined) el.innerHTML = dict[key];
+      });
+      try { localStorage.setItem('marbuendia-lang', lang); } catch(e) {}
+    }
+
+    // Restore preferred language
+    try {
+      const saved = localStorage.getItem('marbuendia-lang');
+      if (saved === 'en' || saved === 'es') setLang(saved);
+    } catch(e) {}
+
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    if (toggle && links) {
+      toggle.addEventListener('click', () => links.classList.toggle('open'));
+    }
+  </script>
+</body>
+</html>
