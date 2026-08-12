@@ -449,6 +449,7 @@
 
 <sc-if value="{{ isComo }}" hint-placeholder-val="{{ false }}">
 <main id="como" style="background:var(--bg)">
+  <!-- BLOQUE 1 (SUPERIOR: TEXTO IZQUIERDA, QR DERECHA) -->
   <section style="padding:64px 24px 48px;border-bottom:1px solid var(--border)">
     <div style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px;align-items:center">
       <div>
@@ -463,10 +464,35 @@
     </div>
   </section>
 
-  <section style="padding:48px 24px 72px;background:var(--surface)">
+  <section style="padding:48px 24px 64px;background:var(--surface);border-bottom:1px solid var(--border)">
     <div style="max-width:1180px;margin:0 auto">
       <div style="width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;border:1px solid var(--border);box-shadow:0 40px 80px -40px rgba(11,37,69,.5);background:#080818">
         <iframe ref="{{ frameRef }}" src="https://samcmsuser.s3.amazonaws.com/camp/14146/index.html" title="Reloj institucional" loading="eager" allow="fullscreen" style="display:block;width:100%;height:100%;border:0"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOQUE 2 (INFERIOR ESPEJEADO: QR IZQUIERDA, TEXTO DERECHA) -->
+  <section style="padding:64px 24px 48px;border-bottom:1px solid var(--border);background:var(--bg)">
+    <div style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px;align-items:center">
+      <!-- TARJETA QR (IZQUIERDA) -->
+      <div style="justify-self: start; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 22px 24px; width: 100%; max-width: 320px; box-shadow: 0 10px 30px -10px rgba(11,37,69,.08); text-align: center;">
+        <span data-i18n="qr-title" style="font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 700;">Ábrelo en tu dispositivo</span>
+        <img src="uploads/pasted-1786002652347-0.png" alt="Nuevo Código QR vista previa" style="width: 200px; height: 200px; display: block; background: #fff; border-radius: 8px; object-fit: contain;">
+      </div>
+      <!-- TEXTO (DERECHA) -->
+      <div>
+        <p data-i18n="como-badge" style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:14px">Ver cómo funciona</p>
+        <h2 data-i18n="como-title" style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(38px,5vw,60px);line-height:1.06;color:var(--brand);margin-bottom:18px">Una pantalla que trabaja para la institución</h2>
+        <p data-i18n="como-lead" style="font-size:17px;color:var(--muted);max-width:660px;text-wrap:pretty">Así se ve un contenido en operación: el mismo lienzo cambia de modo por comando desde el sistema, sin tocar la pantalla, y se adapta a cualquier tamaño.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:48px 24px 72px;background:var(--surface)">
+    <div style="max-width:1180px;margin:0 auto">
+      <div style="width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;border:1px solid var(--border);box-shadow:0 40px 80px -40px rgba(11,37,69,.5);background:#080818">
+        <iframe ref="{{ frameRef2 }}" src="https://samcmsuser.s3.amazonaws.com/camp/14146/index.html" title="Segunda vista previa" loading="eager" allow="fullscreen" style="display:block;width:100%;height:100%;border:0"></iframe>
       </div>
       <div style="text-align:center;margin-top:48px">
         <a href="https://calendar.app.google/ijw4RbR886eE81z76" target="_blank" rel="noopener" data-i18n="piloto-cta" style="display:inline-flex;padding:15px 28px;border-radius:8px;background:var(--brand);color:#fff;font-size:14px;font-weight:600" style-hover="background:var(--brand2);color:#fff">Agenda una reunión y solicita un piloto</a>
@@ -731,6 +757,7 @@ class Component extends DCLogic {
     super(props);
     this.rootRef = React.createRef();
     this.frameRef = React.createRef();
+    this.frameRef2 = React.createRef();
     this.clockRef = React.createRef();
     this.dateRef = React.createRef();
     this.msgRef = React.createRef();
@@ -842,7 +869,7 @@ class Component extends DCLogic {
     const theme = Object.keys(pal).map(k => k + ':' + pal[k]).join(';');
     const setLang = (l) => { try { localStorage.setItem('mb-lang', l); } catch (e) {} this.setState({ lang: l }); };
     return {
-      rootRef: this.rootRef, frameRef: this.frameRef, videoRef: this.videoRef, clockRef: this.clockRef, dateRef: this.dateRef, msgRef: this.msgRef,
+      rootRef: this.rootRef, frameRef: this.frameRef, frameRef2: this.frameRef2, videoRef: this.videoRef, clockRef: this.clockRef, dateRef: this.dateRef, msgRef: this.msgRef,
       theme: theme,
       isHome: this.state.page === 'home',
       isComo: this.state.page === 'como',
