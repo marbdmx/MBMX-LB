@@ -1,19 +1,29 @@
-/display_00001       /display_00001/index.html      200
-/DISPLAY_00001       /display_00001/index.html      200
-/display_00001/      /display_00001/index.html      200
-/DISPLAY_00001/      /display_00001/index.html      200
+http://marbuendia.mx/*      https://marbuendiamx.space/#hero  301!
+https://marbuendia.mx/*     https://marbuendiamx.space/#hero  301!
+http://www.marbuendia.mx/*  https://marbuendiamx.space/#hero  301!
+https://www.marbuendia.mx/* https://marbuendiamx.space/#hero  301!
 
-/display_numero      /display_00001/index.html      200
-/DISPLAY_NUMERO      /display_00001/index.html      200
-/display_numero/     /display_00001/index.html      200
-/DISPLAY_NUMERO/     /display_00001/index.html      200
+/hero                /index.html               200
+/hero/               /index.html               200
+/HERO                /index.html               200
+/HERO/               /index.html               200
 
-/app_admin           /app_admin/index.html          200
-/APP_ADMIN           /app_admin/index.html          200
-/app_admin/          /app_admin/index.html          200
-/APP_ADMIN/          /app_admin/index.html          200
+/display_00001       /display_00001/index.html 200
+/DISPLAY_00001       /display_00001/index.html 200
+/display_00001/      /display_00001/index.html 200
+/DISPLAY_00001/      /display_00001/index.html 200
 
-/remoto              /remoto/index.html             200
-/REMOTO              /remoto/index.html             200
-/remoto/             /remoto/index.html             200
-/REMOTO/             /remoto/index.html             200
+/display_numero      /display_00001/index.html 200
+/DISPLAY_NUMERO      /display_00001/index.html 200
+/display_numero/     /display_00001/index.html 200
+/DISPLAY_NUMERO/     /display_00001/index.html 200
+
+/app_admin           /app_admin/index.html     200
+/APP_ADMIN           /app_admin/index.html     200
+/app_admin/          /app_admin/index.html     200
+/APP_ADMIN/          /app_admin/index.html     200
+
+/remoto              /remoto/index.html        200
+/REMOTO              /remoto/index.html        200
+/remoto/             /remoto/index.html        200
+/REMOTO/             /remoto/index.html        200
