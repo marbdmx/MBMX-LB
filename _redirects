@@ -1,25 +1,19 @@
-/                    /index.html               200
-/home                /index.html               200
-/home/               /index.html               200
-/HOME                /index.html               200
-/HOME/               /index.html               200
+/display_00001       /display_00001/index.html      200
+/DISPLAY_00001       /display_00001/index.html      200
+/display_00001/      /display_00001/index.html      200
+/DISPLAY_00001/      /display_00001/index.html      200
 
-/display_00001       /display_00001/index.html 200
-/DISPLAY_00001       /display_00001/index.html 200
-/display_00001/      /display_00001/index.html 200
-/DISPLAY_00001/      /display_00001/index.html 200
+/display_numero      /display_00001/index.html      200
+/DISPLAY_NUMERO      /display_00001/index.html      200
+/display_numero/     /display_00001/index.html      200
+/DISPLAY_NUMERO/     /display_00001/index.html      200
 
-/display_numero      /display_00001/index.html 200
-/DISPLAY_NUMERO      /display_00001/index.html 200
-/display_numero/     /display_00001/index.html 200
-/DISPLAY_NUMERO/     /display_00001/index.html 200
+/app_admin           /app_admin/index.html          200
+/APP_ADMIN           /app_admin/index.html          200
+/app_admin/          /app_admin/index.html          200
+/APP_ADMIN/          /app_admin/index.html          200
 
-/app_admin           /app_admin/index.html     200
-/APP_ADMIN           /app_admin/index.html     200
-/app_admin/          /app_admin/index.html     200
-/APP_ADMIN/          /app_admin/index.html     200
-
-/remoto              /remoto/index.html        200
-/REMOTO              /remoto/index.html        200
-/remoto/             /remoto/index.html        200
-/REMOTO/             /remoto/index.html        200
+/remoto              /remoto/index.html             200
+/REMOTO              /remoto/index.html             200
+/remoto/             /remoto/index.html             200
+/REMOTO/             /remoto/index.html             200
