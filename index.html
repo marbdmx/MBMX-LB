@@ -36,7 +36,7 @@
 
 <header style="position:sticky;top:0;z-index:80;background:rgba(247,245,241,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)">
   <div style="max-width:1180px;margin:0 auto;padding:12px 24px;min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:12px 20px;flex-wrap:wrap">
-    <a href="#inicio" onClick="{{ goHome }}" style="display:flex;align-items:center;gap:12px;color:inherit;flex-shrink:0">
+    <a href="#hero" onClick="{{ goHome }}" style="display:flex;align-items:center;gap:12px;color:inherit;flex-shrink:0">
       <img src="mbmx-mark.png" alt="MBMX International Communications" style="height:44px;width:auto;display:block">
       <span style="display:flex;flex-direction:column;line-height:1.15;padding-left:12px;border-left:1px solid var(--border)">
         <strong style="font-size:14px;letter-spacing:.06em;color:var(--brand);font-weight:700">MARBUENDIA.MX</strong>
@@ -81,7 +81,7 @@
 <main id="inicio">
 
   <sc-if value="{{ heroA }}" hint-placeholder-val="{{ true }}">
-  <section style="padding:84px 24px 92px;background:linear-gradient(170deg,#FFFFFF 0%,var(--bg) 60%);border-bottom:1px solid var(--border)">
+  <section id="hero" style="padding:84px 24px 92px;background:linear-gradient(170deg,#FFFFFF 0%,var(--bg) 60%);border-bottom:1px solid var(--border)">
     <div style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:56px;align-items:center">
       <div>
         <p data-i18n="hero-badge" style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:22px">Comunicación Institucional Inteligente</p>
@@ -107,7 +107,7 @@
   </sc-if>
 
   <sc-if value="{{ heroB }}" hint-placeholder-val="{{ false }}">
-  <section style="padding:110px 24px 96px;background:var(--brand);color:#fff;text-align:center">
+  <section id="hero" style="padding:110px 24px 96px;background:var(--brand);color:#fff;text-align:center">
     <div style="max-width:900px;margin:0 auto">
       <p data-i18n="hero-badge" style="font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-soft);margin-bottom:26px">Comunicación Institucional Inteligente</p>
       <h1 style="font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:clamp(48px,7vw,92px);line-height:1;letter-spacing:-.025em;margin-bottom:26px;color:#fff"><span data-i18n="hero-title-1">De la pared</span> <em data-i18n="hero-title-2b" style="color:var(--accent-soft)">al resultado.</em></h1>
@@ -127,7 +127,7 @@
   </sc-if>
 
   <sc-if value="{{ heroC }}" hint-placeholder-val="{{ false }}">
-  <section style="padding:0;border-bottom:1px solid var(--border)">
+  <section id="hero" style="padding:0;border-bottom:1px solid var(--border)">
     <div style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));min-height:600px">
       <div style="padding:clamp(48px,7vw,96px) clamp(24px,4vw,48px);display:flex;flex-direction:column;justify-content:center">
         <p data-i18n="hero-badge" style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:20px">Comunicación Institucional Inteligente</p>
