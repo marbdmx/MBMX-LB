@@ -43,7 +43,7 @@
       <a href="#capacidades" onClick="{{ goHome }}" data-i18n="nav-solucion" style="font-size:13.5px;font-weight:500;color:var(--muted);white-space:nowrap" style-hover="color:var(--brand)">Solución</a>
       <a href="#metodologia" onClick="{{ goHome }}" data-i18n="nav-metodologia" style="font-size:13.5px;font-weight:500;color:var(--muted);white-space:nowrap" style-hover="color:var(--brand)">Metodología</a>
       <a href="#verticales" onClick="{{ goHome }}" data-i18n="nav-verticales" style="font-size:13.5px;font-weight:500;color:var(--muted);white-space:nowrap" style-hover="color:var(--brand)">Nuestros Clientes<br></a>
-      <a href="#sam" onClick="{{ goSam }}" data-i18n="nav-como" style="font-size:13.5px;font-weight:700;color:#E63946;background:rgba(230,57,70,0.1);padding:6px 14px;border-radius:6px;border:1px solid rgba(230,57,70,0.25);white-space:nowrap" style-hover="background:#E63946;color:#fff">Cómo funciona</a>
+      <a href="#como" onClick="{{ goComo }}" data-i18n="nav-como" style="font-size:13.5px;font-weight:700;color:#E63946;background:rgba(230,57,70,0.1);padding:6px 14px;border-radius:6px;border:1px solid rgba(230,57,70,0.25);white-space:nowrap" style-hover="background:#E63946;color:#fff">Cómo funciona</a>
       <a href="#contacto" onClick="{{ goContacto }}" data-i18n="nav-contacto" style="font-size:13px;font-weight:600;color:#fff;background:var(--brand);padding:9px 18px;border-radius:7px" style-hover="background:var(--brand2);color:#fff">Contacto</a>
       <span style="display:flex;align-items:center;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:3px;gap:2px">
         <button type="button" onClick="{{ setEs }}" title="Español (México)" style="{{ btnEs }};display:inline-flex;align-items:center;gap:6px">
@@ -92,7 +92,7 @@
         </div>
         <div style="display:flex;gap:12px;flex-wrap:wrap">
           <a href="#piloto" data-i18n="cta-piloto" style="display:inline-flex;align-items:center;padding:15px 26px;border-radius:8px;background:var(--brand);color:#fff;font-size:14px;font-weight:600" style-hover="background:var(--brand2);color:#fff">Conocer el piloto</a>
-          <a href="#sam" onClick="{{ goSam }}" data-i18n="cta-como" style="display:inline-flex;align-items:center;padding:15px 26px;border-radius:8px;background:#E63946;color:#fff;font-size:14px;font-weight:700;box-shadow:0 4px 14px rgba(230,57,70,0.35);border:none" style-hover="background:#C53030;color:#fff">Ver cómo funciona</a>
+          <a href="#como" onClick="{{ goComo }}" data-i18n="cta-como" style="display:inline-flex;align-items:center;padding:15px 26px;border-radius:8px;background:#E63946;color:#fff;font-size:14px;font-weight:700;box-shadow:0 4px 14px rgba(230,57,70,0.35);border:none" style-hover="background:#C53030;color:#fff">Ver cómo funciona</a>
         </div>
       </div>
       <div style="border-radius:18px;overflow:hidden;background:var(--surface);box-shadow:0 30px 70px -34px rgba(11,37,69,.4)">
@@ -110,7 +110,7 @@
       <p data-i18n="hero-lead" style="font-size:19px;color:rgba(255,255,255,.72);max-width:640px;margin:0 auto 34px;text-wrap:pretty">Transformamos la comunicación visual en un sistema inteligente que informa, conecta, protege y genera confianza.</p>
       <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:56px">
         <a href="#piloto" data-i18n="cta-piloto" style="display:inline-flex;padding:15px 28px;border-radius:8px;background:var(--accent);color:#06202B;font-size:14px;font-weight:700" style-hover="background:var(--accent-soft);color:#06202B">Conocer el piloto</a>
-        <a href="#sam" onClick="{{ goSam }}" data-i18n="cta-como" style="display:inline-flex;padding:15px 28px;border-radius:8px;background:#E63946;color:#fff;font-size:14px;font-weight:700;box-shadow:0 4px 14px rgba(230,57,70,0.35);border:none" style-hover="background:#C53030;color:#fff">Ver cómo funciona</a>
+        <a href="#como" onClick="{{ goComo }}" data-i18n="cta-como" style="display:inline-flex;padding:15px 28px;border-radius:8px;background:#E63946;color:#fff;font-size:14px;font-weight:700;box-shadow:0 4px 14px rgba(230,57,70,0.35);border:none" style-hover="background:#C53030;color:#fff">Ver cómo funciona</a>
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.14);border-radius:14px;overflow:hidden">
         <div style="background:var(--brand);padding:22px 16px"><p data-i18n="ben1" style="font-size:13px;font-weight:600;color:#fff">Estrategia que alinea</p></div>
@@ -131,7 +131,7 @@
         <p data-i18n="hero-lead" style="font-size:17px;color:var(--muted);max-width:440px;margin-bottom:28px;text-wrap:pretty">Transformamos la comunicación visual en un sistema inteligente que informa, conecta, protege y genera confianza.</p>
         <div style="display:flex;gap:12px;flex-wrap:wrap">
           <a href="#piloto" data-i18n="cta-piloto" style="display:inline-flex;padding:15px 26px;border-radius:8px;background:var(--brand);color:#fff;font-size:14px;font-weight:600" style-hover="background:var(--brand2);color:#fff">Conocer el piloto</a>
-          <a href="#sam" onClick="{{ goSam }}" data-i18n="cta-como" style="display:inline-flex;padding:15px 26px;border-radius:8px;background:#E63946;color:#fff;font-size:14px;font-weight:700;box-shadow:0 4px 14px rgba(230,57,70,0.35);border:none" style-hover="background:#C53030;color:#fff">Ver cómo funciona</a>
+          <a href="#como" onClick="{{ goComo }}" data-i18n="cta-como" style="display:inline-flex;padding:15px 26px;border-radius:8px;background:#E63946;color:#fff;font-size:14px;font-weight:700;box-shadow:0 4px 14px rgba(230,57,70,0.35);border:none" style-hover="background:#C53030;color:#fff">Ver cómo funciona</a>
         </div>
       </div>
       <div style="background:var(--brand);padding:clamp(40px,5vw,56px) clamp(24px,4vw,48px);display:flex;align-items:center">
@@ -443,9 +443,9 @@
 </main>
 </sc-if>
 
-<sc-if value="{{ isSam }}" hint-placeholder-val="{{ false }}">
-<main id="sam" style="background:var(--bg)">
-  <!-- BLOQUE SAM (TEXTO IZQUIERDA, QR DERECHA) -->
+<sc-if value="{{ isComo }}" hint-placeholder-val="{{ false }}">
+<main id="como" style="background:var(--bg)">
+  <!-- BLOQUE 1 (SUPERIOR: TEXTO IZQUIERDA, QR DERECHA) -->
   <section style="padding:64px 24px 48px;border-bottom:1px solid var(--border)">
     <div style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px;align-items:center">
       <div>
@@ -454,30 +454,23 @@
         <p data-i18n="como-lead" style="font-size:17px;color:var(--muted);max-width:660px;text-wrap:pretty">Así se ve un contenido en operación: el mismo lienzo cambia de modo por comando desde el sistema, sin tocar la pantalla, y se adapta a cualquier tamaño.</p>
       </div>
       <div style="justify-self: end; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 22px 24px; width: 100%; max-width: 320px; box-shadow: 0 10px 30px -10px rgba(11,37,69,.08); text-align: center;">
-        <a href="https://www.runsam.com/layouts/rc/14146/A26330BD-B657-4976-B49B-420AB1A8E13D" target="_blank" rel="noopener" style="text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:14px;color:inherit;width:100%" style-hover="opacity:0.9">
+        <a href="https://marbuendiamx.space/display_00001" target="_blank" rel="noopener" style="text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:14px;color:inherit;width:100%" style-hover="opacity:0.9">
           <span data-i18n="qr-title" style="font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 700;">Ábrelo en tu dispositivo</span>
-          <img src="uploads/pasted-1786002652347-0.png" alt="Código QR de la vista previa" style="width: 200px; height: 200px; display: block; background: #fff; border-radius: 8px; object-fit: contain; cursor: pointer;">
+          <img src="uploads/qr-display-00001.png" alt="Código QR Display 00001" style="width: 200px; height: 200px; display: block; background: #fff; border-radius: 8px; object-fit: contain; cursor: pointer;">
         </a>
       </div>
     </div>
   </section>
 
-  <section style="padding:48px 24px 72px;background:var(--surface)">
+  <section style="padding:48px 24px 64px;background:var(--surface);border-bottom:1px solid var(--border)">
     <div style="max-width:1180px;margin:0 auto">
       <div style="width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;border:1px solid var(--border);box-shadow:0 40px 80px -40px rgba(11,37,69,.5);background:#080818">
-        <iframe ref="{{ frameRef }}" src="https://samcmsuser.s3.amazonaws.com/camp/14146/index.html" title="Reloj institucional" loading="eager" allow="fullscreen" style="display:block;width:100%;height:100%;border:0"></iframe>
-      </div>
-      <div style="text-align:center;margin-top:48px">
-        <a href="https://calendar.app.google/ijw4RbR886eE81z76" target="_blank" rel="noopener" data-i18n="piloto-cta" style="display:inline-flex;padding:15px 28px;border-radius:8px;background:var(--brand);color:#fff;font-size:14px;font-weight:600" style-hover="background:var(--brand2);color:#fff">Agenda una reunión y solicita un piloto</a>
+        <iframe ref="{{ frameRef }}" src="https://ciudadano-buendia.netlify.app/#/display/a1000000-0000-0000-0000-000000000001" title="Display 00001" loading="eager" allow="fullscreen" style="display:block;width:100%;height:100%;border:0"></iframe>
       </div>
     </div>
   </section>
-</main>
-</sc-if>
 
-<sc-if value="{{ isComo }}" hint-placeholder-val="{{ false }}">
-<main id="como" style="background:var(--bg)">
-  <!-- BLOQUE CIUDADANO BUENDIA (QR IZQUIERDA, TEXTO DERECHA) -->
+  <!-- BLOQUE 2 (INFERIOR ESPEJEADO: QR IZQUIERDA, TEXTO DERECHA) -->
   <section style="padding:64px 24px 48px;border-bottom:1px solid var(--border);background:var(--bg)">
     <div style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px;align-items:center">
       <!-- TARJETA QR (IZQUIERDA) -->
@@ -610,7 +603,7 @@
         <a href="#capacidades" onClick="{{ goHome }}" data-i18n="nav-solucion" style="font-size:14px;color:rgba(255,255,255,.65)" style-hover="color:#fff">Solución</a>
         <a href="#metodologia" onClick="{{ goHome }}" data-i18n="nav-metodologia" style="font-size:14px;color:rgba(255,255,255,.65)" style-hover="color:#fff">Metodología</a>
         <a href="#verticales" onClick="{{ goHome }}" data-i18n="nav-verticales" style="font-size:14px;color:rgba(255,255,255,.65)" style-hover="color:#fff">Verticales</a>
-        <a href="#sam" onClick="{{ goSam }}" data-i18n="nav-como" style="font-size:14px;color:rgba(255,255,255,.65)" style-hover="color:#fff">Cómo funciona</a>
+        <a href="#como" onClick="{{ goComo }}" data-i18n="nav-como" style="font-size:14px;color:rgba(255,255,255,.65)" style-hover="color:#fff">Cómo funciona</a>
         <a href="#contacto" onClick="{{ goContacto }}" data-i18n="nav-contacto" style="font-size:14px;color:rgba(255,255,255,.65)" style-hover="color:#fff">Contacto</a>
       </div>
     </div>
@@ -875,14 +868,12 @@ class Component extends DCLogic {
       rootRef: this.rootRef, frameRef: this.frameRef, frameRef2: this.frameRef2, videoRef: this.videoRef, clockRef: this.clockRef, dateRef: this.dateRef, msgRef: this.msgRef,
       theme: theme,
       isHome: this.state.page === 'home',
-      isSam: this.state.page === 'sam',
       isComo: this.state.page === 'como',
       isContacto: this.state.page === 'contacto',
       heroA: this.state.page === 'home' && this.state.hero === 'A',
       heroB: this.state.page === 'home' && this.state.hero === 'B',
       heroC: this.state.page === 'home' && this.state.hero === 'C',
       goHome: (e) => this.nav('home', e),
-      goSam: (e) => this.nav('sam', e),
       goComo: (e) => this.nav('como', e),
       goContacto: (e) => this.nav('contacto', e),
       setEs: () => setLang('es'),
