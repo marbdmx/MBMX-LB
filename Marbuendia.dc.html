@@ -4,9 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>
-  if (location.hostname.toLowerCase() === 'marbuendia.mx' || location.hostname.toLowerCase() === 'www.marbuendia.mx') {
-    location.replace('https://marbuendiamx.space' + location.pathname + location.search + location.hash);
-  }
+  (function() {
+    var p = location.pathname.toLowerCase();
+    if (!p.startsWith('/display') && !p.startsWith('/app_admin') && !p.startsWith('/remoto')) {
+      location.replace('https://marbuendiamx.space/home');
+    }
+  })();
 </script>
 <script src="./support.js"></script>
 </head>

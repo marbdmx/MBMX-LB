@@ -1,10 +1,4 @@
-# Domain redirects to marbuendiamx.space
-http://marbuendia.mx/*        https://marbuendiamx.space/:splat 301!
-https://marbuendia.mx/*       https://marbuendiamx.space/:splat 301!
-http://www.marbuendia.mx/*    https://marbuendiamx.space/:splat 301!
-https://www.marbuendia.mx/*   https://marbuendiamx.space/:splat 301!
-
-# Internal routes for display, admin, and remoto
+# Specific 200 rewrites for internal iframe tools
 /display_00001      /display_00001/index.html      200
 /DISPLAY_00001      /display_00001/index.html      200
 /display_00001/     /display_00001/index.html      200
@@ -24,3 +18,11 @@ https://www.marbuendia.mx/*   https://marbuendiamx.space/:splat 301!
 /REMOTO              /remoto/index.html              200
 /remoto/             /remoto/index.html              200
 /REMOTO/             /remoto/index.html              200
+
+/home                https://marbuendiamx.space/home 302!
+/HOME                https://marbuendiamx.space/home 302!
+/home/               https://marbuendiamx.space/home 302!
+/HOME/               https://marbuendiamx.space/home 302!
+
+# Catch-all redirect to https://marbuendiamx.space/home
+/*                   https://marbuendiamx.space/home 302!
